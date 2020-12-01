@@ -65,7 +65,7 @@
 # use Xenial repo source list to install mongo 3.2
 - name: add the mongodb repo to the sources list for focal
   apt_repository:
-    repo: "{{ MONGODB_REPO_FOCAL }}"
+    repo: "{{ MONGODB_REPO_XENIAL }}"
     state: present
   tags:
     - "install"
