@@ -60,6 +60,16 @@
     - "mongo_packages"
   when: ansible_distribution_release == 'focal'
 
+- name: install dependency
+  apt_repository:
+    repo: "{{ debian_pkgs }}"
+    state: present
+  tags:
+    - "install"
+    - "install:app-requirements"
+    - "mongo_packages"
+  when: ansible_distribution_release == 'focal'
+
 - name: install mongo server and recommends
   apt:
     pkg: "{{ item }}"
