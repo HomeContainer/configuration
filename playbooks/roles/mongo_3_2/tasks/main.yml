@@ -73,9 +73,7 @@
   when: ansible_distribution_release == 'focal'
 
 - name: install dependency
-  apt:
-    repo: "{{ item }}"
-    state: present
+  apt: pkg={{ ",".join(debian_pkgs) }} update_cache=yes state=present install_recommends=no
   with_items: "{{ debian_pkgs }}"
   tags:
     - "install"
