@@ -21,9 +21,8 @@ MONGODB_REPO: "deb http://repo.mongodb.org/apt/ubuntu {{ ansible_distribution_re
 #Focal have Mongo 4.*, remove this when we will move to Mongo 4.*
 MONGODB_REPO_FOCAL: "deb http://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/{{ MONGO_VERSION_MAJOR_MINOR }} multiverse"
 debian_pkgs:
-  - libssl1.0.0/xenial
-  - libssl-dev/xenial
-  - openssl/xenial
+  - libssl-dev
+  - openssl
 
 
 mongodb_debian_pkgs:
