@@ -48,6 +48,17 @@
     - "install"
     - "install:app-requirements"
     - "mongo_packages"
+  when: ansible_distribution_release != 'focal'
+
+- name: add the mongodb repo to the sources list for focal
+  apt_repository:
+    repo: "{{ MONGODB_REPO_FOCAL }}"
+    state: present
+  tags:
+    - "install"
+    - "install:app-requirements"
+    - "mongo_packages"
+  when: ansible_distribution_release == 'focal'
 
 - name: install mongo server and recommends
   apt:
