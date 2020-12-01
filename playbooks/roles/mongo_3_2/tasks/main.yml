@@ -62,8 +62,9 @@
 
 - name: install dependency
   apt_repository:
-    repo: "{{ debian_pkgs }}"
+    repo: "{{ item }}"
     state: present
+  with_items: "{{ debian_pkgs }}"
   tags:
     - "install"
     - "install:app-requirements"
